@@ -6,7 +6,6 @@ import mjolnir from '../../resources/img/mjolnir.png';
 class RandomChar extends Component {
     constructor(props) {
         super(props);
-        this.marvelServiceToo = new MarvelService();
         this.updateChar();
     }
     state = {
@@ -17,6 +16,8 @@ class RandomChar extends Component {
         this.setState({char});
     }
 
+    marvelServiceToo = new MarvelService();
+
     updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
         this.marvelServiceToo
@@ -24,8 +25,15 @@ class RandomChar extends Component {
             .then(this.onChatLoaded)
     }
 
+
+
+
     render() {
         const {char: {name, description, thumbnail, homepage, wiki}} = this.state;
+        // Завдання:
+        // 1) зробити так щоб коли не було опису в персонажа виводилось повідомлення "No data found for this character"
+        // 2) Коли тексту багато він обрізнався і ставились "..."
+        // Зробила в MarvelService
 
         return (
             <div className="randomchar">

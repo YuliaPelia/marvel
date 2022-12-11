@@ -35,14 +35,13 @@ class MarvelService {
     _transformCharacter = (char) => {
         return {
             name: char.name,
-            description: char.description,
+            description: char.description ? `${char.description.slice(0, 210)}...` : 'No data found for this character',
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url
         }
     }
 
-    
 }
 
 export default MarvelService;
