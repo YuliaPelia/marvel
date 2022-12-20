@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import MarvelService from './services/MarvelService';
 import App from './components/app/App';
 import './style/style.scss';
-
-// const marvelService = new MarvelService();
-
-// marvelService.getAllCharacters().then(res => res.data.results.forEach(item => console.log(item)));
 
 
 ReactDOM.render(
