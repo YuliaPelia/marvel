@@ -4,6 +4,7 @@ class MarvelService {
 
     _apiBase = 'https://gateway.marvel.com:443/v1/public/';
     _apiKey = 'apikey=2813600ead6a7195f6ec5f57400c79d3';
+    _apiNum = 210;
 
     getResource = async (url) => {
         let res = await fetch(url); // це все асинхронний код (ми не знаєм через скільки часу вернеться відповідь від сервера) не чекає інший код
@@ -16,8 +17,8 @@ class MarvelService {
         // зробити так щоб асинхроний код перетворювався в синхронний (для цього викор оператори async, await)
     }
 
-    getAllCharacters = async () => {
-        const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=518&${this._apiKey}`);
+    getAllCharacters = async (offset = this._apiNum) => {
+        const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=${offset}&${this._apiKey}`);
         return res.data.results.map(this._transformCharacter);
     }
 
