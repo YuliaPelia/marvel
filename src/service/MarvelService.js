@@ -37,8 +37,23 @@ const useMarvelService = () => {
             
         }
     }
+
+    const getAllComics = async() => {
+        const resCom = await request('https://gateway.marvel.com:443/v1/public/comics?limit=8&offset=999&apikey=2813600ead6a7195f6ec5f57400c79d3');
+        return resCom.data.results.map(_transformComics);
+    }
+
+    const _transformComics = (n) => {
+        return {
+            id: n.id,
+            thumbnail: n.thumbnail.path + '.' + n.thumbnail.extension,
+            name: n.title,
+            price: n.prices[0].price
+
+        }
+    }
     
-    return {loading, error, getAllCharacters, getCharacter, clearError}
+    return {loading, error, getAllCharacters, getCharacter, clearError, getAllComics}
 }
 
 export default useMarvelService;
