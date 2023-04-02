@@ -7,7 +7,7 @@ const useMarvelService = () => {
     const _apiKey = 'apikey=2813600ead6a7195f6ec5f57400c79d3';
     const _apiNum = 80;
 
-
+    const _apiComNum = 99;
     // будемо робити запити до нашого сервера(api)
     // запит по всіх персонажах
     const getAllCharacters = async (offset = _apiNum) => {
@@ -38,9 +38,14 @@ const useMarvelService = () => {
         }
     }
 
-    const getAllComics = async() => {
-        const resCom = await request('https://gateway.marvel.com:443/v1/public/comics?limit=8&offset=999&apikey=2813600ead6a7195f6ec5f57400c79d3');
+    const getAllComics = async(offset = _apiComNum) => {
+        const resCom = await request(`${_apiBase}comics?limit=8&offset=${offset}&${_apiKey}`);
         return resCom.data.results.map(_transformComics);
+    }
+
+    const getComics = async(id) => {
+        const res = await request(`${_apiBase}comics/${id}?${_apiKey}`);
+        return _transformComics(res.data.results[0]);
     }
 
     const _transformComics = (n) => {
@@ -48,12 +53,15 @@ const useMarvelService = () => {
             id: n.id,
             thumbnail: n.thumbnail.path + '.' + n.thumbnail.extension,
             name: n.title,
+            description: n.description ? n.description.slice(0, 210) : 'There is no description for this character',
+            // language: n.textObjects[0].language,
+            page: n.pageCount,
             price: n.prices[0].price
 
         }
     }
     
-    return {loading, error, getAllCharacters, getCharacter, clearError, getAllComics}
+    return {loading, error, getAllCharacters, getCharacter, clearError, getAllComics, getComics}
 }
 
 export default useMarvelService;

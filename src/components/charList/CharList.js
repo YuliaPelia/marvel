@@ -9,7 +9,7 @@ import './charList.scss';
 const CharList = (props) => {
 
     const [chars, setChars] = useState([]);
-    const [offset, setOffset] = useState(44);
+    const [offset, setOffset] = useState(585);
     const [charEnded, setCharsEnded] = useState(false);
     const [loandingMore, setLoadingMore] = useState(false);
 
@@ -31,7 +31,7 @@ const CharList = (props) => {
         let ended = false;
         if(newChars.length < 9) {
             ended = true
-        }
+        } 
 
         setChars(chars => [...chars, ...newChars]);
         setLoadingMore(LoadingMore => false)
