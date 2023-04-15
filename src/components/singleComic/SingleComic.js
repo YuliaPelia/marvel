@@ -65,7 +65,7 @@ const SingleComic = (props) => {
                     <p className="single-comic__descr">Language: {language}</p>
                     <div className="single-comic__price">{price}$</div>
                 </div>
-                <a href="#" className="single-comic__back">Back to all</a>
+                <a href="#"  className="single-comic__back">Back to all</a>
             </>
         )
     }

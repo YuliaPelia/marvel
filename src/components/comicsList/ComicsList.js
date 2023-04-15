@@ -53,7 +53,7 @@ const ComicsList = (props) => {
                         props.onComicsSelected(n.id);
                     }}>
 
-                    <a href="#">
+                    <a href="/2">
                         <img src={n.thumbnail} alt={n.name} className="comics__item-img"/>
                         <div className="comics__item-name">{n.name}</div>
                         <div className="comics__item-price">{n.price}$</div>
