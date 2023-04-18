@@ -14,7 +14,7 @@ const CharList = (props) => {
     const [loandingMore, setLoadingMore] = useState(false);
 
     const {loading, error, getAllCharacters} = useMarvelService();
-
+ 
 
 
     useEffect(() => {
