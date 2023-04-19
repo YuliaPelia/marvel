@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useParams, NavLink } from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../../service/MarvelService';
 import './singleComicPage.scss';
-import { useParams } from 'react-router-dom';
 
 const SingleComicPage = () => {
 
@@ -62,7 +61,7 @@ const SingleComicPage = () => {
                     <p className="single-comic__descr">Language: {language}</p>
                     <div className="single-comic__price">{price}$</div>
                 </div>
-                <a href="#"  className="single-comic__back">Back to all</a>
+                <NavLink to='/comics' className="single-comic__back">Back to all</NavLink>
             </>
         )
     }
