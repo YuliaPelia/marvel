@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../../service/MarvelService';
-import './singleComic.scss';
+import './singleComicPage.scss';
+import { useParams } from 'react-router-dom';
 
-const SingleComic = (props) => {
+const SingleComicPage = () => {
 
+    const {comicId} = useParams();
     const [comics, setComics] = useState(null);
 
     const {loading, error, getComics, clearError} = useMarvelService();
@@ -15,18 +17,13 @@ const SingleComic = (props) => {
 
         updateComics();
         
-    }, [props.comicsId]);
+    }, [comicId]);
 
     const updateComics = () => {
-        const {comicsId} = props;
-
-        if(!comicsId) {
-            return
-        }
 
         clearError();
 
-        getComics(comicsId)
+        getComics(comicId)
             .then(onComicsLoaded);
     }
 
@@ -71,8 +68,6 @@ const SingleComic = (props) => {
     }
 }
 
-SingleComic.propTypes = {
-    charId: PropTypes.number
-}
 
-export default SingleComic;
+
+export default SingleComicPage;

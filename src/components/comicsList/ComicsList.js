@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
@@ -48,16 +49,16 @@ const ComicsList = (props) => {
                 <li className="comics__item"
                     tabIndex={0}
                     ref={el => comicsRefs.current[i] = el}
-                    key={n.id}
+                    key={i}
                     onClick={() => {
                         props.onComicsSelected(n.id);
                     }}>
 
-                    <a href="/2">
+                    <NavLink to={`/comics/${n.id}`} /* href="/2" */>
                         <img src={n.thumbnail} alt={n.name} className="comics__item-img"/>
                         <div className="comics__item-name">{n.name}</div>
                         <div className="comics__item-price">{n.price}$</div>
-                    </a>
+                    </NavLink>
                 </li>
             )
         });

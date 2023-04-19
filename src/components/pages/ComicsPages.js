@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AppBanner from "../appBanner/AppBanner";
 import ComicsList from "../comicsList/ComicsList";
-import SingleComic from "../singleComic/SingleComic";
 import ErrorBoundary from "../errorBoundaries/ErrorBoundary";
 const ComicsPages = () => {
   const [selectedComics, setComics] = useState(null);
@@ -15,9 +14,6 @@ const ComicsPages = () => {
       <ErrorBoundary>
         <ComicsList onComicsSelected={onComicsSelected} />
       </ErrorBoundary>
-      {/* <ErrorBoundary>
-        <SingleComic comicsId={selectedComics} />
-      </ErrorBoundary> */}
     </>
   );
 };
