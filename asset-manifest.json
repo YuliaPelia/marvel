@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/marvel/static/css/main.a20d106a.chunk.css",
+    "main.js": "/marvel/static/js/main.095410fb.chunk.js",
+    "main.js.map": "/marvel/static/js/main.095410fb.chunk.js.map",
+    "runtime-main.js": "/marvel/static/js/runtime-main.04014f13.js",
+    "runtime-main.js.map": "/marvel/static/js/runtime-main.04014f13.js.map",
+    "static/js/2.d5fc177b.chunk.js": "/marvel/static/js/2.d5fc177b.chunk.js",
+    "static/js/2.d5fc177b.chunk.js.map": "/marvel/static/js/2.d5fc177b.chunk.js.map",
+    "static/css/3.699125ff.chunk.css": "/marvel/static/css/3.699125ff.chunk.css",
+    "static/js/3.445c170c.chunk.js": "/marvel/static/js/3.445c170c.chunk.js",
+    "static/js/3.445c170c.chunk.js.map": "/marvel/static/js/3.445c170c.chunk.js.map",
+    "static/css/4.6f619b6a.chunk.css": "/marvel/static/css/4.6f619b6a.chunk.css",
+    "static/js/4.bf2b4fb8.chunk.js": "/marvel/static/js/4.bf2b4fb8.chunk.js",
+    "static/js/4.bf2b4fb8.chunk.js.map": "/marvel/static/js/4.bf2b4fb8.chunk.js.map",
+    "static/css/5.7cf17460.chunk.css": "/marvel/static/css/5.7cf17460.chunk.css",
+    "static/js/5.dfd62786.chunk.js": "/marvel/static/js/5.dfd62786.chunk.js",
+    "static/js/5.dfd62786.chunk.js.map": "/marvel/static/js/5.dfd62786.chunk.js.map",
+    "static/js/6.08b0bef1.chunk.js": "/marvel/static/js/6.08b0bef1.chunk.js",
+    "static/js/6.08b0bef1.chunk.js.map": "/marvel/static/js/6.08b0bef1.chunk.js.map",
+    "index.html": "/marvel/index.html",
+    "static/css/3.699125ff.chunk.css.map": "/marvel/static/css/3.699125ff.chunk.css.map",
+    "static/css/4.6f619b6a.chunk.css.map": "/marvel/static/css/4.6f619b6a.chunk.css.map",
+    "static/css/5.7cf17460.chunk.css.map": "/marvel/static/css/5.7cf17460.chunk.css.map",
+    "static/css/main.a20d106a.chunk.css.map": "/marvel/static/css/main.a20d106a.chunk.css.map",
+    "static/js/2.d5fc177b.chunk.js.LICENSE.txt": "/marvel/static/js/2.d5fc177b.chunk.js.LICENSE.txt",
+    "static/media/Avengers.4065c8f9.png": "/marvel/static/media/Avengers.4065c8f9.png",
+    "static/media/Avengers_logo.9eaf2193.png": "/marvel/static/media/Avengers_logo.9eaf2193.png",
+    "static/media/error.42292aa1.gif": "/marvel/static/media/error.42292aa1.gif",
+    "static/media/mjolnir.61f31e18.png": "/marvel/static/media/mjolnir.61f31e18.png",
+    "static/media/vision.067d4ae1.png": "/marvel/static/media/vision.067d4ae1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.04014f13.js",
+    "static/js/2.d5fc177b.chunk.js",
+    "static/css/main.a20d106a.chunk.css",
+    "static/js/main.095410fb.chunk.js"
+  ]
+}
