@@ -3,33 +3,38 @@ import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
 import ErrorBoundary from "../errorBoundaries/ErrorBoundary";
 import RandomChar from "../randomChar/RandomChar";
+import CharSearchForm from "../charSearchForm/CharSearchForm ";
 
 import decoration from "../../resources/img/vision.png";
 
 const MainPage = () => {
+  const [selectedChar, setChar] = useState(null); // ноякого персонажа не вибрано
 
-    const [selectedChar, setChar] = useState(null); // ноякого персонажа не вибрано
+  const onCharSelected = (id) => {
+    setChar(id);
+  };
 
-    const onCharSelected = (id) => {
-      setChar(id);
-    };
-
-    return (
-        <>
+  return (
+    <>
+      <ErrorBoundary>
+        <RandomChar />
+      </ErrorBoundary>
+      <div className="char__content">
         <ErrorBoundary>
-            <RandomChar />
+          <CharList onCharSelected={onCharSelected} />
         </ErrorBoundary>
-        <div className="char__content">
-            <ErrorBoundary>
-            <CharList onCharSelected={onCharSelected} />
-            </ErrorBoundary>
-            <ErrorBoundary>
+        <div>
+          <ErrorBoundary>
             <CharInfo charId={selectedChar} />
-            </ErrorBoundary>
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <CharSearchForm />
+          </ErrorBoundary>
         </div>
-        <img className="bg-decoration" src={decoration} alt="vision" />
-        </>
-    );
+      </div>
+      <img className="bg-decoration" src={decoration} alt="vision" />
+    </>
+  );
 };
 
 export default MainPage;
