@@ -19,7 +19,7 @@ const CharSearchForm = () => {
   const onCharLoaded = (char) => {
     setChar(char);
   };
-
+  //ску
   const updateChar = (name) => {
     clearError();
     getCharacterByName(name).then(onCharLoaded);
