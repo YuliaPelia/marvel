@@ -7,7 +7,6 @@ import {
 } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-
 import useMarvelService from "../../service/MarvelService";
 import ErrorMessage from "../errorMessage/ErrorMessage";
 

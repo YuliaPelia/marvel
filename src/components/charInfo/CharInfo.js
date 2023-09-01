@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import Spinner from "../spinner/Spinner";
-import ErrorMessage from "../errorMessage/ErrorMessage";
-import Skeleton from "../skeleton/Skeleton";
 import useMarvelService from "../../service/MarvelService";
+import setContent from "../../utils/setContent";
 import "./charInfo.scss";
 
 const CharInfo = (props) => {
   const [char, setChar] = useState(null);
 
-  const { loading, error, getCharacter, clearError } = useMarvelService();
+  const { getCharacter, clearError, process, setProcess } = useMarvelService();
 
   useEffect(() => {
     updateChar();
@@ -27,38 +25,24 @@ const CharInfo = (props) => {
 
     clearError();
 
-    getCharacter(charId).then(onCharLoaded);
+    getCharacter(charId)
+      .then(onCharLoaded)
+      .then(() => setProcess("confirmed"));
   };
 
   const onCharLoaded = (char) => {
     setChar(char);
   };
 
-  // розділимо нашу верстку на два компоненти один буде займатися інтерфейсом, другий - логікою і станом
-
-  // якщо не загружений персонаж, не завантаження і не помилка, тоді в такому випадку ми будемо відображати компонент скелетону
-  const skeleton = char || loading || error ? null : <Skeleton />;
-  const errorMessage = error ? <ErrorMessage /> : null;
-  const spinner = loading ? <Spinner /> : null;
-  const content = !(loading || error || !char) ? <View char={char} /> : null;
-
-  return (
-    <div className="char__info">
-      {skeleton}
-      {errorMessage}
-      {spinner}
-      {content}
-    </div>
-  );
+  return <div className="char__info">{setContent(process, View, char)}</div>;
 };
-// FSM - finish — tate machine
 
-function View({ char }) {
+const View = ({ char }) => {
   const { name, description, thumbnail, homepage, wiki, comics } = char;
 
   let imgStyle = { objectFit: "cover" };
   if (
-    char.thumbnail ===
+    thumbnail ===
     "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
   ) {
     imgStyle = { objectFit: "unset" };
@@ -85,7 +69,6 @@ function View({ char }) {
       <ul className="char__comics-list">
         {comics.length > 0 ? null : "There is no comics with this character"}
         {comics.map((item, i) => {
-          // eslint-disable-next-line
           if (i > 9) return;
           return (
             <li key={i} className="char__comics-item">
@@ -96,7 +79,7 @@ function View({ char }) {
       </ul>
     </>
   );
-}
+};
 
 CharInfo.propTypes = {
   charId: PropTypes.number,
