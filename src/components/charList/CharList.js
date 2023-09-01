@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import Spinner from "../spinner/Spinner";
 import ErrorMessage from "../errorMessage/ErrorMessage";
@@ -102,13 +102,13 @@ const CharList = (props) => {
     return <ul className="char__grid">{items}</ul>;
   }
 
-  // const errorMessage = error ? <ErrorMessage /> : null;
-  // const spinner = loading && !loandingMore ? <Spinner /> : null;
-  // const content = ViewItem(chars);
+  const elements = useMemo(() => {
+    return setContent(process, () => ViewItem(chars), loandingMore);
+  }, [process]);
 
   return (
     <div className="char__list">
-      {setContent(process, () => ViewItem(chars), loandingMore)}
+      {elements}
 
       <button
         className="button button__main button__long"
